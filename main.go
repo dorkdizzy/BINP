@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	go mp3player()
 	a := app.New()
 	w := a.NewWindow("NoBugIsPossible")
 
@@ -20,14 +21,12 @@ func main() {
 	theArray[4] = "Are you Shure this website is safe ? "
 
 	hello := widget.NewLabel("ERREUR B*TARD !")
-	hello2 := widget.NewLabel("Nous n'avons pas pu integrer du son dans l'application. \n Normalement Il y a un son d'alarme, \n mais c'etait dur a implementer. Donc s'il vous plait, \n veuillez chanter \n la note LA pendant toute l'utilisation du logiciel, \n pour etre dans l'ambiance. Merci. \n Signé les dorkies ! ")
 	w.SetContent(container.NewVBox(
 		hello,
 		widget.NewButton("Cliquez ici pour fixer l'erreur", func() {
 			randomnumber := rand.Intn(5 - 0)
 			hello.SetText(theArray[randomnumber])
 		}),
-		hello2,
 	))
 
 	w.ShowAndRun()
